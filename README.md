@@ -1,5 +1,9 @@
-#HSAL - HandlerSocket Abstraction Layer
+[![Latest Stable Version](https://poser.pugx.org/junker/hsal/v/stable)](https://packagist.org/packages/junker/hsal)
+[![Total Downloads](https://poser.pugx.org/junker/hsal/downloads)](https://packagist.org/packages/junker/hsal)
+[![License](https://poser.pugx.org/junker/hsal/license)](https://packagist.org/packages/junker/hsal)
 
+
+#HSAL - HandlerSocket Abstraction Layer
 
 
 ##Requirements
@@ -52,7 +56,7 @@ print_r($page); // ['id' => 5, 'title' => 'page number 5']
 $title = $hs->fetchColumn('pages', 'title', [HSAL::INDEX_PRIMARY => 5]); //SELECT title FROM pages WHERE id=5
 print_r($title); // page number 5
 
-$page = $hs->fetchArray('pages_lang', ['id', 'page_id', 'title'], ['page_lang' => [5,2]]); //SELECT id,title FROM pages_lang WHERE page_id=5 AND language_id=2
+$page = $hs->fetchArray('pages_lang', ['id', 'page_id', 'title'], ['page_lang' => [5,2]]); //SELECT id,page_id,title FROM pages_lang WHERE page_id=5 AND language_id=2
 print_r($title); // [21, 5, 'numéro de la page 5']
 
 $pages = $hs->fetchAll('pages', ['id', 'title'], ['view_count' => 10], HSAL::OPERATOR_GREATER, 10); //SELECT id,title FROM pages WHERE view_count>10 LIMIT 10
@@ -82,7 +86,8 @@ $hs->increment('pages', 'view_count', [HSAL::INDEX_PRIMARY => 5]);
 
 ```
 
-###Roadmap
+##Roadmap
 * php-handlersocket Driver (https://code.google.com/p/php-handlersocket/)
 * batch queries 
 * request timeout option
+* Authorization
