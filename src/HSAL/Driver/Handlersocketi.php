@@ -5,8 +5,10 @@
 namespace HSAL\Driver;
 
 use \HSAL\HSAL;
+use \HSAL\Driver;
+use \HSAL\DriverInterface;
 
-class Handlersocketi  extends \HSAL\Driver implements DriverInterface
+class Handlersocketi  extends Driver implements DriverInterface
 {
 	private $hsr;	
 	private $hsr_connected = FALSE;
@@ -51,11 +53,6 @@ class Handlersocketi  extends \HSAL\Driver implements DriverInterface
 		if ($index == HSAL::INDEX_PRIMARY) $index = 'PRIMARY';
 
 		$index = $hs->openIndex($database, $table, $fields, ['index' => $index]);
-		
-		if (!$index)
-		{
-			throw new \Exception($index->getError(), 1);
-		}
 
 		$result = $index->find([$operator => $condition]);
 
@@ -74,11 +71,6 @@ class Handlersocketi  extends \HSAL\Driver implements DriverInterface
 		if ($index == HSAL::INDEX_PRIMARY) $index = 'PRIMARY';
 
 		$index = $hs->openIndex($database, $table, $fields, ['index' => $index]);
-
-		if (!$index)
-		{
-			throw new \Exception($index->getError(), 1);
-		}
 
 		$result = $index->find([$operator => $condition], ['limit' => $limit, 'offset' => $offset]);
 

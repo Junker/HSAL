@@ -5,9 +5,11 @@
 namespace HSAL\Driver;
 
 use \HSAL\HSAL;
+use \HSAL\Driver;
+use \HSAL\DriverInterface;
 
 
-class HSPHP extends \HSAL\Driver implements DriverInterface
+class HSPHP extends Driver implements DriverInterface
 {
 	private $hsr;	
 	private $hsr_connected = FALSE;
