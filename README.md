@@ -1,4 +1,5 @@
-#HSAL - HandlerSocket Abstraction Layer for PHP
+#HSAL - HandlerSocket Abstraction Layer
+
 
 
 ##Requirements
@@ -41,7 +42,7 @@ HSAL::OPERATOR_GREATER_EQUAL = '>=';
 ##Examples
 
 ```php
-use \HSAL\HSAL;
+use HSAL\HSAL;
 
 $hs = new HSAL('localhost', 'database');
 
@@ -57,10 +58,13 @@ print_r($title); // [21, 5, 'numéro de la page 5']
 $pages = $hs->fetchAll('pages', ['id', 'title'], ['view_count' => 10], HSAL::OPERATOR_GREATER, 10); //SELECT id,title FROM pages WHERE view_count>10 LIMIT 10
 print_r($pages); // [['id' => 4, 'title' => 'page number 4'], ['id' => 5, 'title' => 'page number 5']] 
 
+//can make request to another database(i.e. dev_database) without creating new HSAL instance
+$title = $hs->fetchColumn('dev_database.pages', 'title', [HSAL::INDEX_PRIMARY => 5]); //SELECT title FROM dev_database.pages WHERE id=5
+
 ```
 
 ```php
-use \HSAL\HSAL;
+use HSAL\HSAL;
 
 $hs = new HSAL('localhost', 'database', HSAL::DRIVER_HSPHP);
 
@@ -81,3 +85,4 @@ $hs->increment('pages', 'view_count', [HSAL::INDEX_PRIMARY => 5]);
 ###Roadmap
 * php-handlersocket Driver (https://code.google.com/p/php-handlersocket/)
 * batch queries 
+* request timeout option
