@@ -1,5 +1,6 @@
 {
 	"name": "Junker/HSAL",
+	"type": "library",
 	"description": "HandlerSocket Abstraction layer",
 	"keywords": ["database", "dbal", "mysql", "mariadb", "percona", "handlersocket", "handler socket", "nosql"],
 	"license": "MIT",

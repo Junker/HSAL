@@ -1,5 +1,4 @@
-#HSAL - HandlerSocket Abstraction Layer
-
+#HSAL - HandlerSocket Abstraction Layer for PHP
 
 
 ##Requirements
