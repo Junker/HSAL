@@ -13,7 +13,7 @@ one of handlerSocket Libraries:
 ##Installation
 The best way to install HSAL is to use a [Composer](https://getcomposer.org/download):
 
-    php composer.phar require Junker/HSAL
+    php composer.phar require junker/hsal
 
 
 

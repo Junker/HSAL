@@ -1,5 +1,5 @@
 {
-	"name": "Junker/hsal",
+	"name": "junker/hsal",
 	"description": "HandlerSocket Abstraction layer",
 	"keywords": ["database", "dbal", "mysql", "mariadb", "percona", "handlersocket", "handler socket", "nosql"],
 	"license": "MIT",
