@@ -1,0 +1,2 @@
+# HSAL
+HandlerSocket Abstraction Layer
