@@ -1,0 +1,23 @@
+{
+	"name": "Junker/HSAL",
+	"description": "HandlerSocket Abstraction layer",
+	"keywords": ["database", "dbal", "mysql", "mariadb", "percona", "handlersocket", "handler socket", "nosql"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Dmitry Kosenkov",
+			"email": "dk-junker@ya.ru"
+		}
+	],
+	"require": {
+		"php": ">=5.4"
+	},
+    "suggest": {
+        "tz-lom/HSPHP": "This library provides an API for communicating with the HandlerSocket plugin for MySQL"
+    },
+    "autoload": {
+        "psr-0" : {
+            "HSAL" : "src/"
+        }
+    }
+}
