@@ -8,7 +8,7 @@ use \HSAL\HSAL;
 use \HSAL\Driver;
 use \HSAL\DriverInterface;
 
-class Handlersocketi  extends Driver implements DriverInterface
+class Handlersocketi extends Driver implements DriverInterface
 {
 	private $hsr;	
 	private $hsr_connected = FALSE;
@@ -158,7 +158,7 @@ class Handlersocketi  extends Driver implements DriverInterface
 
 		$index = $hs->openIndex($database, $table, [$field]);
 
-		$result = $index->update([$operator => $condition], ['-' => $increment]);
+		$result = $index->update([$operator => $condition], ['-' => $decrement]);
 
 		return (bool)$result;
 	}
