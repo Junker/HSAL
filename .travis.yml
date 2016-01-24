@@ -1,17 +1,17 @@
 language: php
 php:
-	- '5.4'
-	- '5.5'
-	- '5.6'
+    - '5.4'
+    - '5.5'
+    - '5.6'
 addons:
-	apt:
-		packages:
-			libhsclient-dev
+    apt:
+        packages:
+            libhsclient-dev
     mariadb: "10.0"
 install:
-	- composer require tz-lom/HSPHP
-	- wget https://github.com/kjdev/php-ext-handlersocketi/archive/master.zip
-	- unzip master.zip
-	- "cd php-ext-handlersocketi-master && phpize && ./configure && sudo make install"
+    - composer require tz-lom/HSPHP
+    - wget https://github.com/kjdev/php-ext-handlersocketi/archive/master.zip
+    - unzip master.zip
+    - "cd php-ext-handlersocketi-master && phpize && ./configure && sudo make install"
 before_script:
-  - "mysql -e 'create database hstest; use hstest; CREATE TABLE hstest (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(45) NULL, cnt INT NULL DEFAULT 0, PRIMARY KEY (id));'"
+    - "mysql -e 'create database hstest; use hstest; CREATE TABLE hstest (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(45) NULL, cnt INT NULL DEFAULT 0, PRIMARY KEY (id));'"
