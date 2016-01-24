@@ -74,8 +74,6 @@ class HandlersocketiTest extends PHPUnit_Framework_TestCase
 
 		$result = $hs->insert('test2', ['id' => 3, 'name' => 'new page', 'cnt' => 0]);
 
-		$this->assertTrue($result);
-
 		$result = $hs->fetchColumn('test2', 'name', [HSAL::INDEX_PRIMARY => 3]);
 
 		$this->assertEquals('new page', $result);
