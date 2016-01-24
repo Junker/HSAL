@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Junker/HSAL.svg?branch=master)](https://travis-ci.org/Junker/HSAL)
 [![Latest Stable Version](https://poser.pugx.org/junker/hsal/v/stable)](https://packagist.org/packages/junker/hsal)
 [![Total Downloads](https://poser.pugx.org/junker/hsal/downloads)](https://packagist.org/packages/junker/hsal)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Junker/HSAL/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Junker/HSAL/?branch=master)
