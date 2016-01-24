@@ -10,7 +10,7 @@ addons:
     mariadb: "10.0"
 install:
     - composer self-update
-    - composer require tz-lom/HSPHP
+    - composer require tz-lom/HSPHP:dev-master
     - wget https://github.com/kjdev/php-ext-handlersocketi/archive/master.zip
     - unzip master.zip
     - "cd php-ext-handlersocketi-master && phpize && ./configure && sudo make install"
