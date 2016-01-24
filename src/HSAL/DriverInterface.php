@@ -2,7 +2,7 @@
 
 // Copyright (c) Dmitry Kosenkov,  All rights reserved.
 
-namespace HSAL\Driver;
+namespace HSAL;
 
 interface DriverInterface
 {
