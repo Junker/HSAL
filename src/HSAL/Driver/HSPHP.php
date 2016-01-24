@@ -112,10 +112,7 @@ class HSPHP extends Driver implements DriverInterface
 
 		$result = $hs->readResponse();
 
-		if (!empty($result))
-			return (bool)$result[0][0];
-		else
-			return FALSE;
+		return is_array($result) ? TRUE : FALSE;
 	}
 
 	public function update($table, Array $values, $index, Array $condition, $operator)
