@@ -9,9 +9,15 @@ addons:
             libhsclient-dev
     mariadb: "10.0"
 install:
+    - composer self-update
     - composer require tz-lom/HSPHP
     - wget https://github.com/kjdev/php-ext-handlersocketi/archive/master.zip
     - unzip master.zip
     - "cd php-ext-handlersocketi-master && phpize && ./configure && sudo make install"
 before_script:
-    - "mysql -e 'create database hstest; use hstest; CREATE TABLE hstest (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(45) NULL, cnt INT NULL DEFAULT 0, PRIMARY KEY (id));'"
+    - cd ..
+    - sudo cp tests/travis/hs.cnf /etc/mysql/conf.d/hs.cnf
+    - mysql -e 'INSTALL PLUGIN handlersocket SONAME "handlersocket.so"' -uroot
+    - sudo service mysql restart
+    - mysql -uroot < tests/import.sql
+    - phpenv config-add tests/travis/hs.ini
