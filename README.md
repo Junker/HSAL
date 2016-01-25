@@ -13,7 +13,7 @@ HSAL requires PHP 5.4 or later.
 
 one of handlerSocket Libraries: 
 * HSPHP (https://github.com/tz-lom/HSPHP)
-* Handlersocketi (https://github.com/kjdev/php-ext-handlersocketi)
+* Handlersocketi (https://github.com/kjdev/php-ext-handlersocketi) [Installation instruction](docs/handlersocketi.md) 
 
 
 ##Installation
@@ -44,6 +44,10 @@ HSAL::OPERATOR_LESS_EQUAL = '<=';
 HSAL::OPERATOR_GREATER = '>';
 HSAL::OPERATOR_GREATER_EQUAL = '>=';
 ```
+
+//Drivers
+HSAL::DRIVER_HSPHP
+HSAL::DRIVER_HANDLERSOCKETI
 
 ##Examples
 
