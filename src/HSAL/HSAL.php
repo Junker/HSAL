@@ -27,7 +27,7 @@ class HSAL
 	{
 		if (!extension_loaded('handlersocketi') && (!class_exists('\\HSPHP\\ReadSocket')))
 		{
-			throw new Exception('Error: cannot detect HandlerSocket library. please, install handlersocketi module or HSPHP library');
+			throw new \Exception('Error: cannot detect HandlerSocket library. please, install handlersocketi module or HSPHP library');
 		}
 
 		if ($driver == self::DRIVER_AUTO)
