@@ -20,7 +20,7 @@ class Handlersocketi extends Driver implements DriverInterface
 	{
 		if (!$this->hsr_connected)
 		{
-			$options = isset($this->options['timeout']) ? ['timeout' => $this->options['timeout']] : [];
+			$options = ['timeout' => (isset($this->options['timeout']) ? $this->options['timeout'] : 5)];
 
 			$this->hsr = new \HandlerSocketi($this->host, $this->port_read, $options);
 
@@ -34,7 +34,7 @@ class Handlersocketi extends Driver implements DriverInterface
 	{
 		if (!$this->hsw_connected)
 		{
-			$options = isset($this->options['timeout']) ? ['timeout' => $this->options['timeout']] : [];
+			$options = ['timeout' => (isset($this->options['timeout']) ? $this->options['timeout'] : 5)];
 
 			$this->hsw = new \HandlerSocketi($this->host, $this->port_write, $options);
 

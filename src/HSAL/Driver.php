@@ -4,7 +4,7 @@
 
 namespace HSAL;
 
-class Driver
+abstract class Driver
 {
 	public $database;
 	public $host;
@@ -27,6 +27,8 @@ class Driver
 			$this->port_write = isset($options['port_write']) ? $this->options['port_write'] : $this->port_write;
 		}
 	}
+
+
 
 	public function fetchColumn($table, $field, $index, Array $condition, $operator)
 	{
@@ -56,6 +58,4 @@ class Driver
 
 		return [$database, $table];
 	}
-
-
 }

@@ -23,7 +23,7 @@ class HSAL
 	const INDEX_PRIMARY = '';
 
 
-	public function __construct($host, $database, Array $options = NULL)
+	public function __construct($host, $database, Array $options = [])
 	{
 		if (!extension_loaded('handlersocketi') && (!class_exists('\\HSPHP\\ReadSocket')))
 		{
@@ -32,11 +32,8 @@ class HSAL
 
 		$driver = self::DRIVER_AUTO;
 
-		if (!empty($options))
-		{
-			if (isset($options['driver']))
-				$driver = $options['driver'];
-		}
+		if (isset($options['driver']))
+			$driver = $options['driver'];
 
 		if ($driver == self::DRIVER_AUTO)
 		{
