@@ -16,14 +16,13 @@ class Handlersocketi extends Driver implements DriverInterface
 	private $hsw;
 	private $hsw_connected = FALSE;
 
-	const PORT_READ = 9998;
-	const PORT_WRITE = 9999;
-
 	protected function getReadSocket()
 	{
 		if (!$this->hsr_connected)
 		{
-			$this->hsr = new \HandlerSocketi($this->host, self::PORT_READ);
+			$options = isset($this->options['timeout']) ? ['timeout' => $this->options['timeout']] : [];
+
+			$this->hsr = new \HandlerSocketi($this->host, $this->port_read, $options);
 
 			$this->hsr_connected = TRUE;
 		}
@@ -35,7 +34,9 @@ class Handlersocketi extends Driver implements DriverInterface
 	{
 		if (!$this->hsw_connected)
 		{
-			$this->hsw = new \HandlerSocketi($this->host, self::PORT_WRITE);
+			$options = isset($this->options['timeout']) ? ['timeout' => $this->options['timeout']] : [];
+
+			$this->hsw = new \HandlerSocketi($this->host, $this->port_write, $options);
 
 			$this->hsw_connected = TRUE;
 		}

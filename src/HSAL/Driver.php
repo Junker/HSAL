@@ -8,12 +8,24 @@ class Driver
 {
 	public $database;
 	public $host;
+	public $port_read = 9998;
+	public $port_write = 9999;
 
+	protected $options = [];
 
-	public function __construct($host, $database)
+	public function __construct($host, $database, Array $options)
 	{
 		$this->database = $database;
 		$this->host = $host;
+
+
+		if (!empty($options))
+		{
+			$this->options = $options;
+
+			$this->port_read = isset($options['port_read']) ? $this->options['port_read'] : $this->port_read;
+			$this->port_write = isset($options['port_write']) ? $this->options['port_write'] : $this->port_write;
+		}
 	}
 
 	public function fetchColumn($table, $field, $index, Array $condition, $operator)

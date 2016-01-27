@@ -13,7 +13,9 @@
 		"php": ">=5.4"
 	},
     "suggest": {
-        "tz-lom/HSPHP": "This library provides an API for communicating with the HandlerSocket plugin for MySQL"
+        "tz-lom/HSPHP": "This library provides an API for communicating with the HandlerSocket plugin for MySQL",
+        "ext-handlersocketi": "HandlerSocket C extension for PHP (high performance)"
+
     },
     "autoload": {
         "psr-0" : {

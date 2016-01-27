@@ -6,7 +6,7 @@ class HSPHPTest extends PHPUnit_Framework_TestCase
 {
 	public function testFetchArray()
 	{
-		$hs = new HSAL('localhost', 'hstest', HSAL::DRIVER_HSPHP);
+		$hs = new HSAL('localhost', 'hstest', ['driver' => HSAL::DRIVER_HSPHP]);
 
 		$result = $hs->fetchArray('test', ['id','name','cnt'], [HSAL::INDEX_PRIMARY => 3]);
 
@@ -19,7 +19,7 @@ class HSPHPTest extends PHPUnit_Framework_TestCase
 
 	public function testFetchAssoc()
 	{
-		$hs = new HSAL('localhost', 'hstest', HSAL::DRIVER_HSPHP);
+		$hs = new HSAL('localhost', 'hstest', ['driver' => HSAL::DRIVER_HSPHP]);
 
 		$result = $hs->fetchAssoc('test', ['id','name','cnt'], [HSAL::INDEX_PRIMARY => 3]);
 
@@ -32,7 +32,7 @@ class HSPHPTest extends PHPUnit_Framework_TestCase
 
 	public function testFetchColumn()
 	{
-		$hs = new HSAL('localhost', 'hstest', HSAL::DRIVER_HSPHP);
+		$hs = new HSAL('localhost', 'hstest', ['driver' => HSAL::DRIVER_HSPHP]);
 
 		$result = $hs->fetchColumn('test', 'name', [HSAL::INDEX_PRIMARY => 3]);
 
@@ -41,7 +41,7 @@ class HSPHPTest extends PHPUnit_Framework_TestCase
 
 	public function testFetchAll()
 	{
-		$hs = new HSAL('localhost', 'hstest', HSAL::DRIVER_HSPHP);
+		$hs = new HSAL('localhost', 'hstest', ['driver' => HSAL::DRIVER_HSPHP]);
 
 		$result = $hs->fetchAll('test', ['id', 'name'], [HSAL::INDEX_PRIMARY => 3], HSAL::OPERATOR_LESS_EQUAL);
 
@@ -57,7 +57,7 @@ class HSPHPTest extends PHPUnit_Framework_TestCase
 
 	public function testDelete()
 	{
-		$hs = new HSAL('localhost', 'hstest', HSAL::DRIVER_HSPHP);
+		$hs = new HSAL('localhost', 'hstest', ['driver' => HSAL::DRIVER_HSPHP]);
 
 		$result = $hs->delete('test', [HSAL::INDEX_PRIMARY => 3]);
 
@@ -70,7 +70,7 @@ class HSPHPTest extends PHPUnit_Framework_TestCase
 
 	public function testInsert()
 	{
-		$hs = new HSAL('localhost', 'hstest', HSAL::DRIVER_HSPHP);
+		$hs = new HSAL('localhost', 'hstest', ['driver' => HSAL::DRIVER_HSPHP]);
 
 		$result = $hs->insert('test', ['id' => 3, 'name' => 'new page', 'cnt' => 0]);
 
@@ -83,7 +83,7 @@ class HSPHPTest extends PHPUnit_Framework_TestCase
 
 	public function testUpdate()
 	{
-		$hs = new HSAL('localhost', 'hstest', HSAL::DRIVER_HSPHP);
+		$hs = new HSAL('localhost', 'hstest', ['driver' => HSAL::DRIVER_HSPHP]);
 
 		$result = $hs->update('test', ['name' => 'updated page'], [HSAL::INDEX_PRIMARY => 3]);
 
@@ -96,7 +96,7 @@ class HSPHPTest extends PHPUnit_Framework_TestCase
 
 	public function testIncrement()
 	{
-		$hs = new HSAL('localhost', 'hstest', HSAL::DRIVER_HSPHP);
+		$hs = new HSAL('localhost', 'hstest', ['driver' => HSAL::DRIVER_HSPHP]);
 
 		$result = $hs->increment('test', 'cnt', [HSAL::INDEX_PRIMARY => 3]);
 
@@ -109,7 +109,7 @@ class HSPHPTest extends PHPUnit_Framework_TestCase
 
 	public function testDecrement()
 	{
-		$hs = new HSAL('localhost', 'hstest', HSAL::DRIVER_HSPHP);
+		$hs = new HSAL('localhost', 'hstest', ['driver' => HSAL::DRIVER_HSPHP]);
 
 		$result = $hs->decrement('test', 'cnt', [HSAL::INDEX_PRIMARY => 3]);
 

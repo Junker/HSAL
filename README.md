@@ -26,7 +26,7 @@ The best way to install HSAL is to use a [Composer](https://getcomposer.org/down
 ##API
 
 ```php
-public function __construct($host, $database, $driver = self::DRIVER_AUTO);
+public function __construct($host, $database, $options = NULL);
 public function fetchArray($table, Array $fields, Array $index_condition, $operator = HSAL::OPERATOR_EQUAL); 
 public function fetchAssoc($table, Array $fields, Array $index_condition, $operator = HSAL::OPERATOR_EQUAL);
 public function fetchColumn($table, $field, Array $index_condition, $operator = HSAL::OPERATOR_EQUAL);
@@ -36,6 +36,17 @@ public function insert($table, Array $values);
 public function update($table, Array $values, Array $index_condition, $operator = HSAL::OPERATOR_EQUAL);
 public function increment($table, $field, Array $index_condition, $operator = HSAL::OPERATOR_EQUAL, $increment = 1);
 public function decrement($table, $field, Array $index_condition, $operator = HSAL::OPERATOR_EQUAL, $decrement = 1);
+```
+
+```php
+//Options
+options = 
+[
+	'driver' => HSAL::DRIVER_AUTO,
+	'port_read' => 9998,
+	'port_write' => 9999,
+	'timeout' => 5 //works only for Handlersocketi driver
+]
 
 //Operators
 HSAL::OPERATOR_EQUAL = '=';
@@ -45,6 +56,7 @@ HSAL::OPERATOR_GREATER = '>';
 HSAL::OPERATOR_GREATER_EQUAL = '>=';
 
 //Drivers
+HSAL::DRIVER_AUTO //auto-detect
 HSAL::DRIVER_HSPHP
 HSAL::DRIVER_HANDLERSOCKETI
 ```
@@ -78,7 +90,7 @@ $title = $hs->fetchColumn('dev_database.pages', 'title', [HSAL::INDEX_PRIMARY =>
 ```php
 use HSAL\HSAL;
 
-$hs = new HSAL('localhost', 'database', HSAL::DRIVER_HSPHP);
+$hs = new HSAL('localhost', 'database', ['driver' => HSAL::DRIVER_HSPHP, 'port_write' => 5555]);
 
 $hs->insert('pages', ['id' => 6, 'title' => 'New page']);
 
@@ -97,5 +109,4 @@ $hs->increment('pages', 'view_count', [HSAL::INDEX_PRIMARY => 5]);
 ##Roadmap
 * php-handlersocket Driver (https://code.google.com/p/php-handlersocket/)
 * batch queries 
-* request timeout option
 * Authorization

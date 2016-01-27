@@ -22,7 +22,8 @@ class HSPHP extends Driver implements DriverInterface
 		if (!$this->hsr_connected)
 		{
 			$this->hsr = new \HSPHP\ReadSocket();
-			$this->hsr->connect($this->host);
+
+			$this->hsr->connect($this->host, $this->port_read);
 
 			$this->hsr_connected = TRUE;
 		}
@@ -35,7 +36,8 @@ class HSPHP extends Driver implements DriverInterface
 		if (!$this->hsw_connected)
 		{
 			$this->hsw = new \HSPHP\WriteSocket();
-			$this->hsw->connect($this->host);
+
+			$this->hsw->connect($this->host, $this->port_write);
 
 			$this->hsw_connected = TRUE;
 		}

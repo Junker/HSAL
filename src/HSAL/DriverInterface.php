@@ -6,7 +6,7 @@ namespace HSAL;
 
 interface DriverInterface
 {
-	public function __construct($host, $database);
+	public function __construct($host, $database, Array $options);
 
 	public function fetchArray($table, Array $fields, $index, Array $condition, $operator);
 
