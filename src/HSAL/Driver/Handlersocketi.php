@@ -53,9 +53,9 @@ class Handlersocketi extends Driver implements DriverInterface
 
 		if ($index == HSAL::INDEX_PRIMARY) $index = 'PRIMARY';
 
-		$index = $hs->openIndex($database, $table, $fields, ['index' => $index]);
+		$idx = $hs->openIndex($database, $table, $fields, ['index' => $index]);
 
-		$result = $index->find([$operator => $condition]);
+		$result = $idx->find([$operator => $condition]);
 
 		if (!empty($result) && is_array($result))
 			return $result[0];
@@ -71,9 +71,9 @@ class Handlersocketi extends Driver implements DriverInterface
 
 		if ($index == HSAL::INDEX_PRIMARY) $index = 'PRIMARY';
 
-		$index = $hs->openIndex($database, $table, $fields, ['index' => $index]);
+		$idx = $hs->openIndex($database, $table, $fields, ['index' => $index]);
 
-		$result = $index->find([$operator => $condition], ['limit' => $limit, 'offset' => $offset]);
+		$result = $idx->find([$operator => $condition], ['limit' => $limit, 'offset' => $offset]);
 
 		if (!empty($result) && is_array($result))
 		{
@@ -96,9 +96,9 @@ class Handlersocketi extends Driver implements DriverInterface
 
 		if ($index == HSAL::INDEX_PRIMARY) $index = 'PRIMARY';
 
-		$index = $hs->openIndex($database, $table, [], ['index' => $index]);
+		$idx = $hs->openIndex($database, $table, [], ['index' => $index]);
 
-		$result = $index->remove([$operator => $condition]);
+		$result = $idx->remove([$operator => $condition]);
 
 		return (bool)$result;
 	}
@@ -109,9 +109,9 @@ class Handlersocketi extends Driver implements DriverInterface
 
 		list($database, $table) = $this->getTableDatabase($table);
 
-		$index = $hs->openIndex($database, $table, array_keys($values));
+		$idx = $hs->openIndex($database, $table, array_keys($values));
 
-		$result = $index->insert(array_values($values));
+		$result = $idx->insert(array_values($values));
 
 		return (bool)$result;
 	}
@@ -126,9 +126,9 @@ class Handlersocketi extends Driver implements DriverInterface
 
 		$fields = array_keys($values);
 
-		$index = $hs->openIndex($database, $table, array_keys($values));
+		$idx = $hs->openIndex($database, $table, array_keys($values), ['index' => $index]);
 
-		$result = $index->update([$operator => $condition], array_values($values));
+		$result = $idx->update([$operator => $condition], array_values($values));
 
 		return (bool)$result;
 	}
@@ -141,9 +141,9 @@ class Handlersocketi extends Driver implements DriverInterface
 
 		if ($index == HSAL::INDEX_PRIMARY) $index = 'PRIMARY';
 
-		$index = $hs->openIndex($database, $table, [$field]);
+		$idx = $hs->openIndex($database, $table, [$field], ['index' => $index]);
 
-		$result = $index->update([$operator => $condition], ['+' => $increment]);
+		$result = $idx->update([$operator => $condition], ['+' => $increment]);
 
 		return (bool)$result;
 	}
@@ -157,9 +157,9 @@ class Handlersocketi extends Driver implements DriverInterface
 
 		if ($index == HSAL::INDEX_PRIMARY) $index = 'PRIMARY';
 
-		$index = $hs->openIndex($database, $table, [$field]);
+		$idx = $hs->openIndex($database, $table, [$field], ['index' => $index]);
 
-		$result = $index->update([$operator => $condition], ['-' => $decrement]);
+		$result = $idx->update([$operator => $condition], ['-' => $decrement]);
 
 		return (bool)$result;
 	}
