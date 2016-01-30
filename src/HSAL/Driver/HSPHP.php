@@ -125,7 +125,7 @@ class HSPHP extends Driver implements DriverInterface
 
 		$fields = array_keys($values);
 
-		$idx = $hs->getIndexId($database, $table, '', implode(',', $fields));
+		$idx = $hs->getIndexId($database, $table, $index, implode(',', $fields));
 		$hs->update($idx, $operator, $condition, array_values($values));
 
 		$result = $hs->readResponse();
