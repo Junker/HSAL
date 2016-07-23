@@ -124,8 +124,6 @@ class Handlersocketi extends Driver implements DriverInterface
 
 		if ($index == HSAL::INDEX_PRIMARY) $index = 'PRIMARY';
 
-		$fields = array_keys($values);
-
 		$idx = $hs->openIndex($database, $table, array_keys($values), ['index' => $index]);
 
 		$result = $idx->update([$operator => $condition], array_values($values));
