@@ -90,13 +90,13 @@ $hs->increment('pages', 'view_count', [HSAL::INDEX_PRIMARY => 5]);
 ##API
 
 ### Methods
-**__construct($host, $database, $options)**
+**__construct($host, $database, $options)
 
-name | description | type
---- | --- | ---
-host | ip or hostname of HandlerSocket server | string, required 
-database | database name | string, required 
-options | array of options | assoc array, optional
+| name | description | type |
+| --- | --- | --- |
+| host | ip or hostname of HandlerSocket server | string, required  |
+| database | database name | string, required  |
+| options | array of options | assoc array, optional |
 Options:
 + driver: default HSAL::DRIVER_AUTO
 + port_read: read port (int)
@@ -113,8 +113,7 @@ name | description | type
 table | table name | string, required
 fields | requested fields | array, required
 index_condition | query condition | assoc array, required
-operator | operator for query condition | 
-optional, default: HSAL::OPERATOR_EQUAL
+operator | operator for query condition | optional, default: HSAL::OPERATOR_EQUAL
 ___
 
 
