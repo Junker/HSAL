@@ -5,10 +5,10 @@
 [![License](https://poser.pugx.org/junker/hsal/license)](https://packagist.org/packages/junker/hsal)
 
 
-#HSAL - HandlerSocket Abstraction Layer library for PHP
+# HSAL - HandlerSocket Abstraction Layer library for PHP
 
 
-##Requirements
+## Requirements
 HSAL requires PHP 5.4 or later.
 
 one of handlerSocket Libraries: 
@@ -16,7 +16,7 @@ one of handlerSocket Libraries:
 * Handlersocketi (https://github.com/kjdev/php-ext-handlersocketi) [Installation instruction](docs/handlersocketi.md) 
 
 
-##Installation
+## Installation
 The best way to install HSAL is to use a [Composer](https://getcomposer.org/download):
 
     php composer.phar require junker/hsal
@@ -24,7 +24,7 @@ The best way to install HSAL is to use a [Composer](https://getcomposer.org/down
 
 
 
-##Examples
+## Examples
 
 ```php
 use HSAL\HSAL;
@@ -87,7 +87,7 @@ $hs->increment('pages', 'view_count', [HSAL::INDEX_PRIMARY => 5]);
 ```
 
 
-##API
+## API
 
 ### Methods
 
@@ -216,7 +216,7 @@ HSAL::DRIVER_HANDLERSOCKETI
 
 
 
-##Roadmap
+## Roadmap
 * php-handlersocket Driver (https://code.google.com/p/php-handlersocket/)
 * batch queries 
 * Authorization
