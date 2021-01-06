@@ -102,7 +102,8 @@ Options:
 + driver: default HSAL::DRIVER_AUTO
 + port_read: read port (int)
 + port_write: write port (int)
-+ timeout: timeout, works only for Handlersocketi driver (int)
++ timeout: timeout, works only for Handlersocketi driver (double, default: 5)
++ rw_timeout: read/write timeout, works only for Handlersocketi driver (double, default: 5)
 
 ___
 
